@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+	<title>Svelte app</title>
+
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
+
+	<script defer src='/build/bundle.js'></script>
+</head>
+
+<body>
+
+	<my-parent-component example="0">
+		<my-child-component example="0" />
+	</my-parent-component>
+
+	<my-parent-component example="1">
+	</my-parent-component>
+
+	<my-parent-component example="2">
+		<p>CUSTOM CONTENT</p>
+	</my-parent-component>
+
+	<my-parent-component example="3">
+		<p slot="header">CUSTOM HEADER</p>
+		<p>CUSTOM CONTENT</p>
+		<p slot="footer">CUSTOM FOOTER</p>
+	</my-parent-component>
+
+</body>
+</html>

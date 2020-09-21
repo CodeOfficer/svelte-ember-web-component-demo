@@ -1,0 +1,11 @@
+<style>
+  .fancy {
+    background: green;
+  }
+</style>
+
+<p class="fancy">FANCY HEADER</p>
+
+{{yield (hash value=@value valueFromComputed=this.valueFromComputed)}}
+
+<p class="fancy">FANCY FOOTER</p>

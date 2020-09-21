@@ -1,0 +1,41 @@
+
+<h1>Examples</h1>
+
+<my-parent-component label="Example (pass all slots)">
+  <p slot="header">PARENT CUSTOM HEADER</p>
+  <p>PARENT CUSTOM BODY</p>
+  <p slot="footer">PARENT CUSTOM FOOTER</p>
+</my-parent-component>
+
+<my-parent-component label="Example (no ember listener)" value={{this.value1}} />
+
+<CustomEvents @onChildComponentCustomEvent={{fn this.incValue1}}>
+  <my-parent-component label="Example 1 (manual default slot)">
+    <my-child-component value={{this.value1}}/>
+  </my-parent-component>
+</CustomEvents>
+<p>value1: {{this.value1}}</p>
+
+<CustomEvents @onChildComponentCustomEvent={{fn this.incValue2}}>
+  <my-parent-component label="Example 2 (fancy yields inside web component)">
+    <FancyEmberComponent @value={{this.value2}} as |c| >
+      <p>Fancy Yield: {{c.value}}</p>
+      <p>Fancy Yield: {{c.valueFromComputed}}</p>
+      <my-child-component value={{this.value2}}/>
+    </FancyEmberComponent>
+    <FancyEmberComponent @value={{this.value2}} as |c| >
+      NEW ONE!
+      <p>Fancy Yield: {{c.value}}</p>
+      <p>Fancy Yield: {{c.valueFromComputed}}</p>
+      <my-child-component value={{this.value2}}/>
+    </FancyEmberComponent>
+  </my-parent-component>
+</CustomEvents>
+<p>value2: {{this.value2}}</p>
+
+<h1>Example 4 (child by itself)</h1>
+
+<CustomEvents @onChildComponentCustomEvent={{fn this.incValue3}}>
+  <my-child-component value={{this.value3}}/>
+</CustomEvents>
+<p>value3: {{this.value3}}</p>
